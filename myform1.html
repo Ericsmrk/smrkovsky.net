@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <h1 id="title">My Survey</h1>
+    <p id="description">Please take some time to complete my survey...</p>
+    <form id="survey-form">
+      <fieldset>
+        <label 
+          for="name" 
+          id="name-label">Enter name: 
+          <input 
+            id="name" 
+            type="text" 
+            placeholder="..." 
+            required
+          />
+        </label>
+        <label 
+          for="email" 
+          id="email-label">Enter email:
+          <input id="email" 
+            type="email" 
+            placeholder="..." 
+            required
+          />
+        </label>
+        <label 
+          for="number" 
+          id="number-label">Enter age: 
+          <input 
+            id="number" 
+            type="number" 
+            min="10" 
+            max="110" 
+            placeholder="..." 
+            required
+          />
+        </label>
+      </fieldset>
+      <fieldset>
+        <label 
+          for="dropdown" 
+          id="dropdown-label">Did you like the service: 
+          <select id="dropdown">
+            <option value="">Select one</option>
+            <option value="1">Yes</option>
+            <option value="2">No</option>
+            <option value="3">Decline to answer</option>        
+          </select>
+        </label>  
+      </fieldset>
+      <fieldset>
+        <legend>Type of work performed: </legend>
+        <label 
+          for="tree-work">
+          <input 
+            id="tree-work" 
+            type="radio" 
+            name="workType"
+            value="finished"
+          />Tree Work
+        </label>
+        <label 
+          for="weedeating">
+          <input 
+            id="weedeating" 
+            type="radio" 
+            name="workType"
+            value="finished"
+          />Weedeating
+        </label>
+        <label 
+          for="dump-run">
+          <input 
+            id="dump-run" 
+            type="radio" 
+            name="workType"
+            value="finished"
+          />Dump Run
+        </label>
+      </fieldset>
+      <fieldset>
+        <legend>How did you hear about this service?</legend>
+        <label 
+          for="facebook">
+          <input
+            id="facebook"
+            type="checkbox"
+            value="selected"
+          />Facebook
+        </label>
+        <label 
+          for="facebook">
+          <input
+            id="facebook"
+            type="checkbox"
+            value="selected"
+          />Number on Sign
+        </label>
+      </fieldset>
+      <fieldset>
+        <p>Comments:</p>
+        <textarea id="comment" placeholder="Enter your comment...">
+        </textarea>
+      </fieldset>
+      <div>
+        <button id="submit" type="submit">
+          Submit!
+        </button>    
+    </form> 
+  </body>
