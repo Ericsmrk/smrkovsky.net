@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lab 4 Exercise 4</title>
+    <style>
+        body{
+            background-color: black;
+        }
+        table {
+            width: 20%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        table, td, th {
+            border: 1px solid green;
+            
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+            color: green;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .inputs{
+            padding-top: 10%;
+            text-align: center;
+        }
+        h1{
+            color: red;
+        }
+        #in{
+            color: green;
+            border: 3px solid green;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Look, a webpage that displays the first n prime numbers</h1>
+    <script>
+        function btnReset() {
+            document.getElementById("div_function").innerHTML = "";
+            document.getElementById("div_table").innerHTML = "";
+        }
+
+        function btnOk() {
+            let n = document.getElementById("n").value;
+            let primes=getNPrimes(n+1);
+            
+            let str = "";
+            str = "<table>";
+            str += "<tr><td>n</td><td>primes</td></tr>";
+            for (let i = 0; i < n; i++) {
+                str += '<tr id="row' + (i+1) + '"><td>' + (i+1) + "</td><td>" + primes[i] + "</td></tr>";
+            }
+            str += "</table>";
+            document.getElementById("div_table").innerHTML = str;
+        }
+
+        function isPrime(num){
+            if(num <= 1){
+                return false; //0,1 not prime
+            }
+            else if(num === 2){
+                return true; //2 is prime
+            }
+            else if(num % 2 === 0){
+                return false; //if num is even its not prime
+            }
+            else{
+                for(let i = 3; i <= Math.sqrt(num); i += 2){
+                    if(num % i === 0){
+                        return false; // if n is divisible by anything but 1 and itself its not prime   
+                    }
+                }
+                return true; // it is prime because it is divisible by 1 and itself ONLY
+            }
+        }
+
+        function getNPrimes(num){
+            let primeNums = [];
+            let i= 0; //counter
+            let n = 2;
+
+            while(i < num){
+                if(isPrime(n)){ // if its a prime number add it to the list
+                    primeNums.push(n);
+                    i++; 
+                }
+                n++;
+            }
+            return primeNums;
+        }
+
+
+    </script>
+
+    <section class="inputs">
+        <label for="n" id="in">n:</label>
+        <input type="number" name="n" id="n"/>
+        <input type="button" id="ok" value="ok" onclick="btnOk()"/>
+        <input type="button" id="reset" value="reset" onclick="btnReset()"/>
+
+        <div id="div_function">
+        </div>
+
+        <div id="div_table">
+        </div>
+    </section>
+</body>
+</html>
